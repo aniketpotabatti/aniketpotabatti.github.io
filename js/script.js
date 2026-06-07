@@ -91,8 +91,8 @@
   // Typing Animation
   // ============================
   const TITLES = [
-    'Developer Enthusiast',
     'Freelance Data Scientist',
+    'Developer Enthusiast',
     'Generative AI Engineer',
     'Problem Solver',
   ];
