@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aniket Potabatti — Portfolio</title>
-  <meta name="description" content="Personal portfolio of Aniket Potabatti — Developer, designer, and creator. Explore my projects, skills, and get in touch." />
+
+  <!-- Primary SEO -->
+  <title>Aniket Potabatti — Developer & Data Scientist</title>
+  <meta name="description"
+    content="Portfolio of Aniket Potabatti — Developer, Data Scientist, and Generative AI engineer. Building intelligent products with Python, LangChain, and Gemini." />
+  <meta name="author" content="Aniket Potabatti" />
   <meta name="theme-color" content="#000000" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Aniket Potabatti — Developer & Data Scientist" />
+  <meta property="og:description"
+    content="Portfolio of Aniket Potabatti — Developer, Data Scientist, and GenAI engineer." />
+  <meta property="og:image" content="assets/images/profile.jpg" />
+  <meta property="og:url" content="https://aniketpotabatti.github.io" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@aniketpotabatti" />
+  <meta name="twitter:title" content="Aniket Potabatti — Developer & Data Scientist" />
+  <meta name="twitter:description"
+    content="Portfolio of Aniket Potabatti — Developer, Data Scientist, and GenAI engineer." />
+  <meta name="twitter:image" content="assets/images/profile.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
 
   <!-- Google Fonts — Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,16 +37,39 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
+
+  <!-- ======================== Page Loader ======================== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <span class="loader__text">AP</span>
+    </div>
+  </div>
+
+  <!-- ======================== Custom Cursor ======================== -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" id="cursor-follower" aria-hidden="true"></div>
+
+  <!-- ======================== Progress Bar ======================== -->
+  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 
   <!-- ======================== Navigation ======================== -->
   <nav class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="#hero" class="nav__logo" id="nav-logo">AP.</a>
+      <a href="#hero" class="nav__logo" id="nav-logo">
+        <svg width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-label="AP logo">
+          <rect width="64" height="64" rx="10" fill="#000" />
+          <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, sans-serif"
+            font-size="26" font-weight="700" letter-spacing="-1" fill="#fff">AP</text>
+        </svg>
+      </a>
       <ul class="nav__links" id="nav-links">
         <li><a href="#about" class="nav__link" data-section="about">About</a></li>
+        <li><a href="#experience" class="nav__link" data-section="experience">Experience</a></li>
         <li><a href="#skills" class="nav__link" data-section="skills">Skills</a></li>
         <li><a href="#projects" class="nav__link" data-section="projects">Projects</a></li>
         <li><a href="#blog" class="nav__link" data-section="blog">Blog</a></li>
@@ -39,15 +86,32 @@
   <!-- ======================== Hero Section ======================== -->
   <section class="hero" id="hero">
     <div class="container hero__content">
+
+      <!-- Availability badge -->
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        <span class="hero__badge-text">Open to opportunities</span>
+      </div>
+
       <p class="hero__greeting">Hello, I'm</p>
       <h1 class="hero__name">Aniket Potabatti</h1>
-      <p class="hero__title">Developer &amp; Creator</p>
+
+      <!-- Typing animation wrapper -->
+      <p class="hero__title">
+        <span class="hero__typing" id="hero-typing"></span>
+        <span class="hero__cursor-blink">|</span>
+      </p>
+
       <div class="hero__cta-group">
-        <a href="#projects" class="btn btn--primary">View Work</a>
-        <a href="#contact" class="btn btn--outline">Get in Touch</a>
+        <a href="#projects" class="btn btn--primary" id="hero-view-work">View Work</a>
+        <a href="assets/resume.pdf" class="btn btn--outline" id="hero-resume" download>
+          ↓ Download Resume
+        </a>
+        <a href="#contact" class="btn btn--ghost" id="hero-contact">Get in Touch</a>
       </div>
     </div>
-    <div class="hero__scroll">
+
+    <div class="hero__scroll" aria-hidden="true">
       <span class="hero__scroll-text">Scroll</span>
       <span class="hero__scroll-line"></span>
     </div>
@@ -58,25 +122,27 @@
     <div class="container">
       <div class="about__grid">
         <div class="about__image-wrapper reveal">
-          <div class="about__placeholder">Your Photo</div>
+          <img src="assets/images/profile.jpg" alt="Aniket Potabatti" class="about__image" />
         </div>
         <div class="about__text">
           <div class="section__header reveal">
-            <p class="section__label">About</p>
+            <p class="section__label"><span class="section__num">01</span> About</p>
             <h2 class="section__title">Building digital<br />experiences.</h2>
             <div class="section__divider"></div>
           </div>
           <p class="reveal reveal-delay-1">
-            I'm a passionate developer who loves crafting clean, functional, and 
-            visually compelling digital products. With a keen eye for detail and a 
-            drive for excellence, I bring ideas to life through code.
+            I'm a passionate developer and data scientist who loves crafting intelligent,
+            clean, and visually compelling digital products. With a keen eye for detail
+            and a drive for excellence, I bring ideas to life through code and AI.
           </p>
           <p class="reveal reveal-delay-2">
-            Whether it's a sleek web application, a robust backend system, or an 
-            intuitive user interface — I believe great software is both beautiful 
-            and purposeful.
+            Whether it's a sleek GenAI application, a robust backend, or an intuitive
+            user interface — I believe great software is both beautiful and purposeful.
           </p>
-          <div class="about__stats reveal reveal-delay-3">
+          <div class="about__cta reveal reveal-delay-3">
+            <a href="assets/resume.pdf" class="btn btn--primary" download>↓ Download Resume</a>
+          </div>
+          <div class="about__stats reveal reveal-delay-4">
             <div>
               <div class="about__stat-number">10+</div>
               <div class="about__stat-label">Projects</div>
@@ -95,11 +161,79 @@
     </div>
   </section>
 
+  <!-- ======================== Experience Section ======================== -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="section__label"><span class="section__num">02</span> Experience</p>
+        <h2 class="section__title">My Journey</h2>
+        <div class="section__divider"></div>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline__item reveal reveal-delay-1">
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <h3 class="timeline__title">Generative AI Developer</h3>
+              <span class="timeline__period">2025 — Present</span>
+            </div>
+            <p class="timeline__org">Self — GenAIHub Projects</p>
+            <p class="timeline__desc">
+              Building and publishing open-source GenAI applications including PdfPal, NutriGuide,
+              and Dishcovery using Python, LangChain, and Gemini API.
+            </p>
+            <div class="timeline__tags">
+              <span>Python</span><span>LangChain</span><span>Gemini API</span><span>Streamlit</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item reveal reveal-delay-2">
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <h3 class="timeline__title">Data Science Practitioner</h3>
+              <span class="timeline__period">2023 — 2025</span>
+            </div>
+            <p class="timeline__org">Independent Projects & Kaggle</p>
+            <p class="timeline__desc">
+              Competed in Kaggle challenges, published Medium articles on Data Science,
+              and developed end-to-end ML pipelines and dashboards.
+            </p>
+            <div class="timeline__tags">
+              <span>Machine Learning</span><span>Pandas</span><span>Scikit-learn</span><span>Kaggle</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item reveal reveal-delay-3">
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <h3 class="timeline__title">B.Sc. — Computer Science</h3>
+              <span class="timeline__period">2020 — 2023</span>
+            </div>
+            <p class="timeline__org">University Studies</p>
+            <p class="timeline__desc">
+              Foundation in algorithms, data structures, software engineering and
+              applied mathematics. Developed a strong interest in AI and data systems.
+            </p>
+            <div class="timeline__tags">
+              <span>CS Fundamentals</span><span>Algorithms</span><span>Databases</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ======================== Skills Section ======================== -->
   <section class="section section--dark" id="skills">
     <div class="container">
       <div class="section__header reveal">
-        <p class="section__label">What I Do</p>
+        <p class="section__label"><span class="section__num" style="color:var(--clr-gray-500)">03</span> What I Do</p>
         <h2 class="section__title">Skills &amp; Expertise</h2>
         <div class="section__divider"></div>
       </div>
@@ -121,15 +255,15 @@
 
         <div class="skill-card reveal reveal-delay-2">
           <span class="skill-card__icon">⚙</span>
-          <h3 class="skill-card__title">Backend Development</h3>
+          <h3 class="skill-card__title">Data Science &amp; AI</h3>
           <p class="skill-card__description">
-            Building robust, scalable server-side applications and APIs that power seamless user experiences.
+            Building intelligent systems with machine learning, data pipelines, and generative AI models.
           </p>
           <div class="skill-card__tags">
-            <span class="skill-tag">Node.js</span>
             <span class="skill-tag">Python</span>
-            <span class="skill-tag">REST</span>
-            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">LangChain</span>
+            <span class="skill-tag">Gemini API</span>
+            <span class="skill-tag">Pandas</span>
           </div>
         </div>
 
@@ -142,6 +276,7 @@
           <div class="skill-card__tags">
             <span class="skill-tag">Figma</span>
             <span class="skill-tag">UI/UX</span>
+            <span class="skill-tag">Streamlit</span>
             <span class="skill-tag">Prototyping</span>
           </div>
         </div>
@@ -154,62 +289,62 @@
   <section class="section" id="projects">
     <div class="container">
       <div class="section__header reveal">
-        <p class="section__label">Portfolio</p>
+        <p class="section__label"><span class="section__num">04</span> Portfolio</p>
         <h2 class="section__title">Selected Work</h2>
         <div class="section__divider"></div>
       </div>
       <div class="projects__grid">
 
-        <a href="https://github.com/aniketpotabatti/GenAIHub/tree/main/PdfPal" class="project-card reveal reveal-delay-1" id="project-1" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/aniketpotabatti/GenAIHub/tree/main/PdfPal"
+          class="project-card reveal reveal-delay-1" id="project-1" target="_blank" rel="noopener noreferrer">
           <div class="project-card__image">
-            <div class="project-card__placeholder">01</div>
+            <img src="assets/images/pdfpal.png" alt="PdfPal project preview" loading="lazy" />
             <div class="project-card__overlay">
-              <span class="project-card__overlay-text">View Project →</span>
+              <span class="project-card__overlay-text">View on GitHub →</span>
             </div>
           </div>
           <div class="project-card__body">
             <h3 class="project-card__title">PdfPal</h3>
-            <p class="project-card__desc">An intelligent PDF assistant powered by GenAI to chat, summarize, and extract info from documents.</p>
+            <p class="project-card__desc">An intelligent PDF assistant powered by GenAI to chat, summarize, and extract
+              info from documents.</p>
             <div class="project-card__tech">
-              <span>Python</span>
-              <span>LangChain</span>
-              <span>Gemini API</span>
+              <span>Python</span><span>LangChain</span><span>Gemini API</span>
             </div>
           </div>
         </a>
 
-        <a href="https://github.com/aniketpotabatti/GenAIHub/tree/main/NutriGuide" class="project-card reveal reveal-delay-2" id="project-2" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/aniketpotabatti/GenAIHub/tree/main/NutriGuide"
+          class="project-card reveal reveal-delay-2" id="project-2" target="_blank" rel="noopener noreferrer">
           <div class="project-card__image">
-            <div class="project-card__placeholder">02</div>
+            <img src="assets/images/nutriguide.png" alt="NutriGuide project preview" loading="lazy" />
             <div class="project-card__overlay">
-              <span class="project-card__overlay-text">View Project →</span>
+              <span class="project-card__overlay-text">View on GitHub →</span>
             </div>
           </div>
           <div class="project-card__body">
             <h3 class="project-card__title">NutriGuide</h3>
-            <p class="project-card__desc">A GenAI nutrition advisor analyzing meals and tailoring personalized diet plans.</p>
+            <p class="project-card__desc">A GenAI nutrition advisor analyzing meals and tailoring personalized diet
+              plans.</p>
             <div class="project-card__tech">
-              <span>Python</span>
-              <span>Streamlit</span>
-              <span>Gemini API</span>
+              <span>Python</span><span>Streamlit</span><span>Gemini API</span>
             </div>
           </div>
         </a>
 
-        <a href="https://github.com/aniketpotabatti/GenAIHub/tree/main/Dishcovery" class="project-card reveal reveal-delay-3" id="project-3" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/aniketpotabatti/GenAIHub/tree/main/Dishcovery"
+          class="project-card reveal reveal-delay-3" id="project-3" target="_blank" rel="noopener noreferrer">
           <div class="project-card__image">
-            <div class="project-card__placeholder">03</div>
+            <img src="assets/images/dishcovery.png" alt="Dishcovery project preview" loading="lazy" />
             <div class="project-card__overlay">
-              <span class="project-card__overlay-text">View Project →</span>
+              <span class="project-card__overlay-text">View on GitHub →</span>
             </div>
           </div>
           <div class="project-card__body">
             <h3 class="project-card__title">Dishcovery</h3>
-            <p class="project-card__desc">Discover recipes and culinary ideas from raw ingredients and image uploads using vision AI.</p>
+            <p class="project-card__desc">Discover recipes and culinary ideas from raw ingredients and image uploads
+              using vision AI.</p>
             <div class="project-card__tech">
-              <span>Python</span>
-              <span>Gemini Vision</span>
-              <span>Streamlit</span>
+              <span>Python</span><span>Gemini Vision</span><span>Streamlit</span>
             </div>
           </div>
         </a>
@@ -219,47 +354,53 @@
   </section>
 
   <!-- ======================== Blog Section ======================== -->
-  <section class="section" id="blog">
+  <section class="section section--alt" id="blog">
     <div class="container container--narrow">
       <div class="section__header reveal">
-        <p class="section__label">Writing</p>
+        <p class="section__label"><span class="section__num">05</span> Writing</p>
         <h2 class="section__title">Blog &amp; Articles</h2>
         <div class="section__divider"></div>
       </div>
       <div class="blog__list">
 
-        <a href="https://medium.com/coinmonks/amazing-data-science-books-that-will-boost-your-career-in-2024-702dda49fb59" class="blog-item reveal reveal-delay-1" target="_blank" rel="noopener noreferrer">
+        <a href="https://medium.com/coinmonks/amazing-data-science-books-that-will-boost-your-career-in-2024-702dda49fb59"
+          class="blog-item reveal reveal-delay-1" target="_blank" rel="noopener noreferrer">
           <div class="blog-item__meta">
             <span class="blog-item__date">Feb 2024</span>
             <span class="blog-item__tag">Data Science</span>
           </div>
           <div class="blog-item__content">
             <h3 class="blog-item__title">Amazing Data Science Books That Will Boost Your Career in 2025</h3>
-            <p class="blog-item__excerpt">A curated list of essential data science books that can significantly enhance your technical skills and career prospects.</p>
+            <p class="blog-item__excerpt">A curated list of essential data science books that can significantly enhance
+              your technical skills and career prospects.</p>
           </div>
           <span class="blog-item__arrow">→</span>
         </a>
 
-        <a href="https://medium.com/datadriveninvestor/the-rise-of-no-code-data-science-53baf1d166bb" class="blog-item reveal reveal-delay-2" target="_blank" rel="noopener noreferrer">
+        <a href="https://medium.com/datadriveninvestor/the-rise-of-no-code-data-science-53baf1d166bb"
+          class="blog-item reveal reveal-delay-2" target="_blank" rel="noopener noreferrer">
           <div class="blog-item__meta">
-            <span class="blog-item__date">June 26 2024</span>
+            <span class="blog-item__date">Jun 2024</span>
             <span class="blog-item__tag">Data Science</span>
           </div>
           <div class="blog-item__content">
             <h3 class="blog-item__title">The Rise of No-Code Data Science</h3>
-            <p class="blog-item__excerpt">Exploring the growing trend of no-code data science and its impact on the field.</p>
+            <p class="blog-item__excerpt">Exploring the growing trend of no-code data science and its impact on the
+              field.</p>
           </div>
           <span class="blog-item__arrow">→</span>
         </a>
 
-        <a href="https://medium.com/@Aniket01" class="blog-item reveal reveal-delay-3" target="_blank" rel="noopener noreferrer">
+        <a href="https://medium.com/towards-artificial-intelligence/build-an-instant-chat-assistant-with-groq-llama-3-99b83b7dbe53"
+          class="blog-item reveal reveal-delay-3" target="_blank" rel="noopener noreferrer">
           <div class="blog-item__meta">
-            <span class="blog-item__date">April 2026</span>
-            <span class="blog-item__tag">Vision AI</span>
+            <span class="blog-item__date">Jan 2026</span>
+            <span class="blog-item__tag">Generative AI</span>
           </div>
           <div class="blog-item__content">
-            <h3 class="blog-item__title">Vision AI in the Kitchen: The Tech Behind Dishcovery</h3>
-            <p class="blog-item__excerpt">Exploring multimodal models to classify visual ingredients and dynamically generate creative culinary recipes.</p>
+            <h3 class="blog-item__title">Build an Instant Chat Assistant with Groq &amp; Llama 3</h3>
+            <p class="blog-item__excerpt">Explore the future of real-time AI with Groq's blazing-fast inference engine
+              and Meta's powerful Llama 3 model.</p>
           </div>
           <span class="blog-item__arrow">→</span>
         </a>
@@ -269,26 +410,32 @@
   </section>
 
   <!-- ======================== Contact Section ======================== -->
-  <section class="section section--alt" id="contact">
+  <section class="section" id="contact">
     <div class="container">
       <div class="section__header reveal">
-        <p class="section__label">Contact</p>
+        <p class="section__label"><span class="section__num">06</span> Contact</p>
         <h2 class="section__title">Let's Work Together</h2>
         <div class="section__divider"></div>
       </div>
       <div class="contact__content">
         <p class="contact__text reveal reveal-delay-1">
-          Have a project in mind, or just want to say hello? I'm always open to 
+          Have a project in mind, or just want to say hello? I'm always open to
           new opportunities and conversations. Drop me a line!
         </p>
-        <a href="mailto:[EMAIL_ADDRESS]" class="contact__email reveal reveal-delay-2">
+        <a href="mailto:aniketpotabatti@gmail.com" class="contact__email reveal reveal-delay-2">
           aniketpotabatti@gmail.com
         </a>
         <div class="contact__socials reveal reveal-delay-3">
-          <a href="https://github.com/aniketpotabatti" class="contact__social-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://in.linkedin.com/in/aniket-potabatti" class="contact__social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://x.com/aniketpotabatti" class="contact__social-link" target="_blank" rel="noopener noreferrer">X</a>
-          <a href="https://medium.com/@Aniket01" class="contact__social-link" target="_blank" rel="noopener noreferrer">Medium</a>
+          <a href="https://github.com/aniketpotabatti" class="contact__social-link" target="_blank"
+            rel="noopener noreferrer">GitHub</a>
+          <a href="https://in.linkedin.com/in/aniket-potabatti" class="contact__social-link" target="_blank"
+            rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://x.com/aniketpotabatti" class="contact__social-link" target="_blank"
+            rel="noopener noreferrer">X</a>
+          <a href="https://medium.com/@Aniket01" class="contact__social-link" target="_blank"
+            rel="noopener noreferrer">Medium</a>
+          <a href="https://kaggle.com/aniketpotabatti" class="contact__social-link" target="_blank"
+            rel="noopener noreferrer">Kaggle</a>
         </div>
       </div>
     </div>
@@ -297,12 +444,13 @@
   <!-- ======================== Footer ======================== -->
   <footer class="footer">
     <div class="container footer__inner">
-      <p class="footer__text">© 2026 Aniket Potabatti. All rights reserved.</p>
+      <p class="footer__text">© 2026 Aniket Potabatti. Crafted with care.</p>
       <button class="footer__back-top" id="back-to-top">Back to Top ↑</button>
     </div>
   </footer>
 
   <!-- JavaScript -->
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
+
 </html>
