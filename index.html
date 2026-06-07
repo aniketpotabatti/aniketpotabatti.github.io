@@ -104,6 +104,9 @@
 
       <div class="hero__cta-group">
         <a href="#projects" class="btn btn--primary" id="hero-view-work">View Work</a>
+        <a href="assets/resume.pdf" class="btn btn--outline" id="hero-resume" download>
+          ↓ Download Resume
+        </a>
         <a href="#contact" class="btn btn--ghost" id="hero-contact">Get in Touch</a>
       </div>
     </div>
@@ -402,6 +405,41 @@
           <span class="blog-item__arrow">→</span>
         </a>
 
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================== Newsletter Section ======================== -->
+  <section class="section section--newsletter" id="newsletter">
+    <div class="container">
+      <div class="newsletter__card reveal">
+        <div class="newsletter__info">
+          <h2 class="newsletter__title">Join the newsletter</h2>
+          <p class="newsletter__desc">Get the latest insights and updates straight to your inbox.</p>
+        </div>
+        <div class="newsletter__form-container">
+          <form class="newsletter__form" action="https://aniketpotabatti.substack.com/api/v1/free?nojs=true"
+            method="post" target="_blank" rel="noopener noreferrer">
+            <input type="email" name="email" class="newsletter__input" placeholder="Type your email..." required />
+            <button type="submit" class="newsletter__btn">Subscribe</button>
+          </form>
+          <p class="newsletter__terms">
+            By subscribing you agree to Substack's <a href="https://substack.com/tos" target="_blank"
+              rel="noopener noreferrer">Terms of Use</a>, <a href="https://substack.com/privacy" target="_blank"
+              rel="noopener noreferrer">Privacy Policy</a> and <a
+              href="https://substack.com/ccpa#personal-data-collected" target="_blank"
+              rel="noopener noreferrer">Information collection notice</a>
+          </p>
+          <div class="newsletter__brand">
+            <a href="https://substack.com" target="_blank" rel="noopener noreferrer" class="newsletter__substack-logo">
+              <svg viewBox="0 0 80 80" class="newsletter__substack-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#808080" d="M12 12h56v9H12zm0 17.5h56v38.5L40 54.6 12 68z" />
+              </svg>
+              <span>substack</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
