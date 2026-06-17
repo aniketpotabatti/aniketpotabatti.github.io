@@ -1,0 +1,246 @@
+/* ========================================
+   CSS Custom Properties — Design Tokens
+   ======================================== */
+:root {
+  /* Colors */
+  --clr-black: #000000;
+  --clr-white: #ffffff;
+  --clr-off-white: #f5f5f5;
+  --clr-gray-100: #e8e8e8;
+  --clr-gray-200: #d0d0d0;
+  --clr-gray-300: #a0a0a0;
+  --clr-gray-400: #707070;
+  --clr-gray-500: #505050;
+  --clr-gray-600: #333333;
+  --clr-gray-700: #1a1a1a;
+  --clr-gray-800: #111111;
+  --clr-gray-900: #0a0a0a;
+  --clr-green: #22c55e;
+
+  /* Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --fs-xs: clamp(0.7rem, 0.8vw, 0.8rem);
+  --fs-sm: clamp(0.85rem, 1vw, 0.95rem);
+  --fs-base: clamp(1rem, 1.1vw, 1.1rem);
+  --fs-md: clamp(1.1rem, 1.3vw, 1.25rem);
+  --fs-lg: clamp(1.5rem, 2.5vw, 2rem);
+  --fs-xl: clamp(2rem, 4vw, 3.5rem);
+  --fs-2xl: clamp(2.8rem, 6vw, 5rem);
+  --fs-hero: clamp(3rem, 7vw, 6.5rem);
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --lh-tight: 1.1;
+  --lh-snug: 1.3;
+  --lh-normal: 1.6;
+  --ls-tight: -0.03em;
+  --ls-normal: 0;
+  --ls-wide: 0.08em;
+  --ls-wider: 0.15em;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 10rem;
+
+  /* Layout */
+  --max-width: 1200px;
+  --max-width-narrow: 800px;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 700ms;
+
+  /* Borders */
+  --border-thin: 1px solid var(--clr-gray-200);
+  --border-dark: 1px solid var(--clr-gray-600);
+}
+
+/* ========================================
+   Reset & Base
+   ======================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  color: var(--clr-black);
+  background-color: var(--clr-white);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity var(--duration-fast) var(--ease-out);
+  cursor: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: none;
+  border: none;
+  background: none;
+}
+
+::selection {
+  background-color: var(--clr-black);
+  color: var(--clr-white);
+}
+
+/* ========================================
+   Noise Grain Overlay — Premium Texture
+   ======================================== */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ========================================
+   Utilities
+   ======================================== */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.container--narrow {
+  max-width: var(--max-width-narrow);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ========================================
+   Scroll Reveal Animation (Global)
+   ======================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 100ms;
+}
+
+.reveal-delay-2 {
+  transition-delay: 200ms;
+}
+
+.reveal-delay-3 {
+  transition-delay: 300ms;
+}
+
+.reveal-delay-4 {
+  transition-delay: 400ms;
+}
+
+.reveal-delay-5 {
+  transition-delay: 500ms;
+}
+
+.reveal-delay-6 {
+  transition-delay: 600ms;
+}
+
+/* Custom domain hover classes for dynamic links classification */
+.link-github,
+.link-medium,
+.link-linkedin,
+.link-x,
+.link-kaggle {
+  /* Dynamic classification styling if user wishes to style links uniquely */
+}
+
+@media (hover: none) {
+  body,
+  a,
+  button {
+    cursor: auto !important;
+  }
+}
+
+/* ========================================
+   Reduced Motion Accessibility
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
