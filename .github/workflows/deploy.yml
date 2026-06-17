@@ -19,22 +19,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@1d241e9fc733fd98b3e8a729e4ab2873b856157f # v4.2.0
         with:
           node-version: 20
           cache: "npm"
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
+
 
       - name: Build project
         run: npm run build
 
       - name: Upload build output
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda996908657 # v3.0.1
         with:
           path: ./dist
 
@@ -47,4 +48,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164db5ed86f2b6a760b57818e079d4e83f # v4.0.5
