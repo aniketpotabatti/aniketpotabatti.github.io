@@ -1,0 +1,41 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment variables — NEVER push API keys or secrets
+.env
+.env.*
+!.env.example
+
+# Old backup folder — pre-migration raw HTML/CSS/JS files
+_backup/
+
+# Root-level duplicate assets folder (src/assets/ is the real one)
+/assets/
+
+# Auto-generated lock file (optional — remove this line if you want to commit it)
+package-lock.json
+
+# Personal planning notes
+plan.md
