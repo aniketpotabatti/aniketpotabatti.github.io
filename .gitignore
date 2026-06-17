@@ -27,15 +27,3 @@ dist-ssr
 .env
 .env.*
 !.env.example
-
-# Old backup folder — pre-migration raw HTML/CSS/JS files
-_backup/
-
-# Root-level duplicate assets folder (src/assets/ is the real one)
-/assets/
-
-# Auto-generated lock file (optional — remove this line if you want to commit it)
-package-lock.json
-
-# Personal planning notes
-plan.md
