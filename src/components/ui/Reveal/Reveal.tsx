@@ -12,7 +12,7 @@ export const Reveal: FC<RevealProps> = ({ children, delay }) => {
 
   return (
     <div
-      ref={ref as any}
+      ref={ref}
       className={`reveal ${isRevealed ? 'revealed' : ''} ${delayClass}`}
     >
       {children}

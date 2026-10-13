@@ -13,7 +13,8 @@ export const useCustomCursor = (
     const hoverMedia = window.matchMedia('(hover: hover)');
     if (!hoverMedia.matches) return;
 
-    setIsVisible(true);
+    // Use setTimeout to avoid calling setState synchronously within an effect
+    setTimeout(() => setIsVisible(true), 0);
 
     let mouseX = 0;
     let mouseY = 0;

@@ -22,7 +22,9 @@ const getLinkClass = (url: string): string => {
         return cls;
       }
     }
-  } catch (_) {}
+  } catch {
+  // empty catch - URLs that don't match any domain
+}
   return '';
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Blog.module.css';
 import { Section } from '../ui/Section/Section';
 import { Reveal } from '../ui/Reveal/Reveal';
@@ -21,21 +21,28 @@ const getLinkClass = (url: string): string => {
         return cls;
       }
     }
-  } catch (_) {}
+  } catch {
+    return '';
+  }
+  // add fallback return for linter
   return '';
 };
 
-export const Blog: React.FC = () => {
+const Blog: React.FC = () => {
+  const [showAll, setShowAll] = useState(false);
+
+  const postsToShow = showAll ? blogPosts : blogPosts.slice(0, 6);
+
   return (
     <Section
       id="blog"
       num="05"
       label="Writing"
-      title="Blog &amp; Articles"
+      title="Blog & Articles"
       variant="alt"
     >
       <div className={styles.list}>
-        {blogPosts.map((post, index) => {
+        {postsToShow.map((post, index) => {
           const linkCls = getLinkClass(post.url);
           return (
             <Reveal key={index} delay={index + 1}>
@@ -59,6 +66,16 @@ export const Blog: React.FC = () => {
           );
         })}
       </div>
+      <div className={styles.buttonContainer}>
+        <button
+          className={styles.button}
+          onClick={() => setShowAll(!showAll)}
+        >
+          {showAll ? 'See Less →' : 'See More →'}
+        </button>
+      </div>
     </Section>
   );
 };
+
+export default Blog;

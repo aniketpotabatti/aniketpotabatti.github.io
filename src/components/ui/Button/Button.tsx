@@ -42,7 +42,7 @@ export const Button: FC<ButtonProps> = ({
     return (
       <a
         href={href}
-        onClick={onClick as any}
+        onClick={onClick as React.MouseEventHandler<HTMLAnchorElement>}
         download={download}
         target={target}
         rel={rel}

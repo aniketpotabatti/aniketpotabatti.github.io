@@ -28,4 +28,20 @@ export const projects: Project[] = [
     image: dishcoveryImg,
     url: 'https://github.com/aniketpotabatti/GenAIHub/tree/main/Dishcovery',
   },
+  {
+    id: 'project-4',
+    title: 'CodeSense',
+    description: 'Real-time code explanation, review, and completion — inside your editor.',
+    tech: ['Python 3.12', 'FastAPI', 'Node.js', 'TypeScript'],
+    image: dishcoveryImg,
+    url: 'https://github.com/aniketpotabatti/CodeSense',
+  },
+  {
+    id: 'project-5',
+    title: 'AI Quality Analytics Platform',
+    description: 'A production-grade platform for evaluating LLM outputs against hallucination, faithfulness, and grounding metrics.',
+    tech: ['Python', 'Gemini Vision', 'Streamlit'],
+    image: dishcoveryImg,
+    url: 'https://github.com/aniketpotabatti/AI-Quality-Analytics-Platform',
+  },
 ];
