@@ -12,7 +12,8 @@ export const Reveal: FC<RevealProps> = ({ children, delay }) => {
 
   return (
     <div
-      ref={ref}
+      ref={ref as React.RefObject<HTMLDivElement>}
+ 
       className={`reveal ${isRevealed ? 'revealed' : ''} ${delayClass}`}
     >
       {children}
