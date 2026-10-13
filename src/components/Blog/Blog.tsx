@@ -28,7 +28,7 @@ const getLinkClass = (url: string): string => {
   return '';
 };
 
-const Blog: React.FC = () => {
+export const Blog: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
 
   const postsToShow = showAll ? blogPosts : blogPosts.slice(0, 6);
